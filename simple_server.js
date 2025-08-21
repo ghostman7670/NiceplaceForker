@@ -90,10 +90,10 @@ app.post('/api/send-message', (req, res) => {
     if (deviceInfo) {
       console.log('- Device Info:', JSON.stringify(deviceInfo));
     }
-    
+
     // You can implement Telegram notification here if needed
     // This would use the TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID environment variables
-    
+
     res.status(200).json({ success: true });
   } catch (error) {
     console.error('Error in send-message endpoint:', error);
