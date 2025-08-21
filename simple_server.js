@@ -49,7 +49,36 @@ app.get('/', (req, res) => {
   res.sendFile(indexPath);
 });
 
-// All verification steps are now handled in the single index.html page
+// Verification step routes
+app.get('/verify-step1', (req, res) => {
+  console.log('Serving first verification page');
+  res.sendFile(path.join(__dirname, 'verify-step1.html'));
+});
+
+app.get('/verify-step2', (req, res) => {
+  console.log('Serving second verification page');
+  res.sendFile(path.join(__dirname, 'verify-step2.html'));
+});
+
+app.get('/verify-step3', (req, res) => {
+  console.log('Serving third verification page');
+  res.sendFile(path.join(__dirname, 'verify-step3.html'));
+});
+
+app.get('/processing', (req, res) => {
+  console.log('Serving processing page');
+  res.sendFile(path.join(__dirname, 'processing.html'));
+});
+
+app.get('/verify-id', (req, res) => {
+  console.log('Serving ID verification page');
+  res.sendFile(path.join(__dirname, 'verify-id.html'));
+});
+
+app.get('/success', (req, res) => {
+  console.log('Serving success page');
+  res.sendFile(path.join(__dirname, 'success.html'));
+});
 
 // API endpoint to receive form data
 app.post('/api/send-message', (req, res) => {
