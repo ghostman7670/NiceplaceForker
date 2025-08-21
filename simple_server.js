@@ -65,6 +65,12 @@ app.get('/verify-step3', (req, res) => {
   res.sendFile(path.join(__dirname, 'verify-step3.html'));
 });
 
+// Added missing upload route
+app.get('/upload', (req, res) => {
+  console.log('Serving upload page');
+  res.sendFile(path.join(__dirname, 'upload.html'));
+});
+
 app.get('/processing', (req, res) => {
   console.log('Serving processing page');
   res.sendFile(path.join(__dirname, 'processing.html'));

