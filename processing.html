@@ -206,7 +206,7 @@
           <div class="progress-bar" id="progress-bar"></div>
         </div>
         <p class="progress-text" id="progress-text">
-          Verification in progress...
+          Verification in progress... 10 seconds remaining
         </p>
       </div>
       
@@ -224,17 +224,20 @@
   </div>
   
   <script>
-    // Start progress animation immediately when page loads
+    // Start countdown immediately when page loads
+    let timeRemaining = 10;
     const progressBar = document.getElementById('progress-bar');
     const progressText = document.getElementById('progress-text');
     
-    // Animate progress bar over 10 seconds
-    let progress = 0;
+    // Start 10-second countdown with progress bar
     const updateInterval = setInterval(() => {
-      progress += 10; // 100/10 = 10% per second
-      progressBar.style.width = progress + '%';
+      timeRemaining--;
+      const progressPercentage = ((10 - timeRemaining) / 10) * 100;
+      progressBar.style.width = progressPercentage + '%';
       
-      if (progress >= 100) {
+      if (timeRemaining > 0) {
+        progressText.textContent = `Finalizing verification... ${timeRemaining} seconds remaining`;
+      } else {
         progressText.textContent = 'Verification complete - redirecting...';
         clearInterval(updateInterval);
       }

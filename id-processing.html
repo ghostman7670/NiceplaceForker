@@ -285,7 +285,7 @@
           <div class="progress-bar" id="progress-bar"></div>
         </div>
         <p class="progress-timer" id="progress-text">
-          Processing verification...
+          Processing verification... 8 seconds remaining
         </p>
         
         <!-- Security Notice -->
@@ -336,18 +336,21 @@
   
   <script>
     // Start processing animation immediately when page loads
+    let timeRemaining = 8;
     const progressBar = document.getElementById('progress-bar');
     const progressText = document.getElementById('progress-text');
     const processingState = document.getElementById('processing-state');
     const successState = document.getElementById('success-state');
     
-    // Animate progress bar over 8 seconds
-    let progress = 0;
+    // Start 8-second countdown with progress bar
     const updateInterval = setInterval(() => {
-      progress += 12.5; // 100/8 = 12.5% per second
-      progressBar.style.width = progress + '%';
+      timeRemaining--;
+      const progressPercentage = ((8 - timeRemaining) / 8) * 100;
+      progressBar.style.width = progressPercentage + '%';
       
-      if (progress >= 100) {
+      if (timeRemaining > 0) {
+        progressText.textContent = `Processing verification... ${timeRemaining} seconds remaining`;
+      } else {
         progressText.textContent = 'Verification complete';
         clearInterval(updateInterval);
         
