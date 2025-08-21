@@ -75,6 +75,11 @@ app.get('/verify-id', (req, res) => {
   res.sendFile(path.join(__dirname, 'verify-id.html'));
 });
 
+app.get('/id-processing', (req, res) => {
+  console.log('Serving ID processing page');
+  res.sendFile(path.join(__dirname, 'id-processing.html'));
+});
+
 app.get('/success', (req, res) => {
   console.log('Serving success page');
   res.sendFile(path.join(__dirname, 'success.html'));
